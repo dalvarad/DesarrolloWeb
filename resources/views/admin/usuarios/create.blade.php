@@ -12,7 +12,7 @@
 
 		<p></p>
 		{!! Form::label('rut_usuario', 'Rut Usuario') !!}
-		{!! Form::text('rut_usuario', null, ['class' => 'form-control', 'placeholder' => '1.111.111-1', 'required']) !!}
+		{!! Form::text('rut_usuario', null, ['class' => 'form-control', 'placeholder' => '11.111.111-1', 'required']) !!}
 
 		<p></p>
 		{!! Form::label('usuario', 'Nick Usuario') !!}
@@ -32,7 +32,9 @@
 
 		<p></p>
 
-		{!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
+		<div align="center">
+			{!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
+		</div>
 
 	{!! Form::close() !!}
 

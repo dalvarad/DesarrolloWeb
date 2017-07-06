@@ -12,7 +12,7 @@
 
 		<p></p>
 		{!! Form::label('rut_usuario', 'Rut Usuario') !!}
-		{!! Form::text('rut_usuario', $user->rut_usuario, ['class' => 'form-control', 'placeholder' => '1.111.111-1', 'required']) !!}
+		{!! Form::text('rut_usuario', $user->rut_usuario, ['class' => 'form-control', 'placeholder' => '11.111.111-1', 'required']) !!}
 
 		<p></p>
 		{!! Form::label('usuario', 'Nick Usuario') !!}
@@ -20,11 +20,13 @@
 
 		<p></p>
 		{!! Form::label('tipo', 'Tipo de Usuario') !!}
-		{!! Form::select('tipo', ['' => 'Seleccione un nivel', 'administrador' => 'administrador', 'recepcionista' => 'recepcionista'], null, ['class' => 'form-control',  'required']) !!}
+		{!! Form::select('tipo', ['' => 'Seleccione un nivel', 'administrador' => 'Administrador', 'recepcionista' => 'Recepcionista'], null, ['class' => 'form-control',  'required']) !!}
 
 		<p></p>
 
-		{!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+		<div align="center">
+			{!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+		</div>
 
 	{!! Form::close() !!}
 

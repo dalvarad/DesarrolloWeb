@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
+
 class UsuarioRequest extends Request
 {
     /**
@@ -25,7 +26,7 @@ class UsuarioRequest extends Request
     {
         return [
             'nombre_usuario' => 'min:4|max:120|required',
-            'rut_usuario' => 'max:12|required|unique:usuarios',
+            'rut_usuario' => 'max:12|required|unique:usuarios|cl_rut',
             'usuario' => 'min:4|max:20|required|unique:usuarios',
             'pass' => 'min:6|max:120|confirmed|required',
             'tipo' => 'required'
