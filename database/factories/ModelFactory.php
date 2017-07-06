@@ -1,5 +1,7 @@
 <?php
 
+use \Freshwork\ChileanBundle\Rut;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -11,11 +13,14 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Usuario::class, function (Faker\Generator $faker) {
+ 
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'nombre_usuario' => $faker->name,
+        'rut_usuario' => Rut::set(rand(1000000, 25000000))->fix()->format(Rut::FORMAT_WITH_DASH),
+        'usuario' => $faker->userName,
+        'pass' => bcrypt(str_random(10)),
+        'tipo' => 'recepcionista'
     ];
+
 });
