@@ -32,15 +32,20 @@
 
             <!--Cuerpo de panel-->
             <div class="panel-body">
+
+                <!--Incluyo mensajes flash-->
+                @include('template.partials.flash')
+
                 <!--muestra contendos-->
                 @yield('contenido')
+                
             </div>
-
-            <!--pie de panel FALTA dejarlo al FINAL-->
-            <div class="panel panel-footer">
-                @include('template.partials.footer')
-            </div>  
-
         </div><!--FIN contenido centrado-->
+
+        <!--pie de panel FALTA dejarlo al FINAL-->
+        <div class="panel panel-footer">
+            @include('template.partials.footer')
+        </div>   
+               
     </body>
 </html>
