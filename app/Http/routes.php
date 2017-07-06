@@ -33,6 +33,9 @@ Route::get('contacto', function (){
 
 Route::group(['prefix' => 'admin'], function(){
 	Route::resource('usuarios','UsuariosController');
+	Route::get('usuarios/{id}/destroy', [
+		'uses' => 'UsuariosController@destroy',
+		'as' => 'admin.usuarios.destroy'
+	]);
 
 });
-

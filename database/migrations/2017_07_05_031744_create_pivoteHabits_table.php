@@ -14,14 +14,14 @@ class CreatePivoteHabitsTable extends Migration
     {
         Schema::create('pivotehabits',function(Blueprint $table){
 
-            $table->increments('id_reserva');
+            $table->increments('id');
             $table->integer('id_us')->unsigned();
             $table->integer('id_ha')->unsigned();
             $table->date('hora_inicio');
             $table->date('hora_termino');
 
-            $table->foreign('id_us')->references('id_usuario')->on('usuarios');
-            $table->foreign('id_ha')->references('id_hab')->on('habitaciones');
+            $table->foreign('id_us')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('id_ha')->references('id')->on('habitaciones')->onDelete('cascade');
 
             $table->timestamps();
         });
