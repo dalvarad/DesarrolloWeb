@@ -39,3 +39,21 @@ Route::group(['prefix' => 'admin'], function(){
 	]);
 
 });
+
+
+/*Rutas de Autentificacion*/
+Route::get('admin/auth/login', [
+	'uses' => 'Auth\AuthController@getLogin',
+	'as' => 'admin.auth.login' 
+]);
+
+Route::post('admin/auth/login', [
+	'uses' => 'Auth\AuthController@postLogin',
+	'as' => 'admin.auth.login' 
+]);
+
+Route::get('admin/auth/logout', [
+	'uses' => 'Auth\AuthController@getLogout',
+	'as' => 'admin.auth.logout' 
+]);
+/*Fin Rutas Autentificación */

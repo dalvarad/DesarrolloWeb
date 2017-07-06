@@ -33,6 +33,11 @@ class UsuariosController extends Controller
         return redirect(route('admin.usuarios.index'));
     }
 
+    public function($id)
+    {
+        //
+    }
+
     public function edit($id){
         $user = Usuario::find($id);
         return view('admin.usuarios.edit')->with('user', $user);
