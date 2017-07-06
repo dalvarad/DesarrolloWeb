@@ -48,14 +48,19 @@ class UsuariosController extends Controller
 
     public function update(Request $request, $id){
         $user = Usuario::find($id);
-
+    
+        $user->nombre_usuario = $request->nombre_usuario;
         $this->validate($request,[
             'rut_usuario' => 'cl_rut'
-            ]);
-        
+        ]);
+        $user->usuario = $request->usuario;
+        $user->tipo = $request->tipo;
+
         $user->save();
+        
         Session::flash('message_success', "Se ha modificado el usuario $user->nombre_usuario Exitosamente!");
         return redirect(route('admin.usuarios.index'));
+     
     }
 
     public function destroy($id){
