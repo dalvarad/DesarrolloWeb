@@ -26,7 +26,7 @@
 							<span class="label label-primary">{{ $usuario->tipo }}</span>
 						@endif	
 					</td>
-					<td><a href="" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> <a href="{{ route('admin.usuarios.destroy', $usuario->id) }}" onclick="return confirm('¿Está seguro de eliminar al usuario seleccionado?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
+					<td><a href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> <a href="{{ route('admin.usuarios.destroy', $usuario->id) }}" onclick="return confirm('¿Está seguro de eliminar al usuario seleccionado?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
 				</tr>
 			@endforeach
 		</tbody>
