@@ -33,8 +33,11 @@
             <!--Cuerpo de panel-->
             <div class="panel-body">
 
-                <!--Incluyo mensajes flash-->
+                <!--Incluyo mensajes flash agregados en el controlador-->
                 @include('template.partials.flash')
+
+                <!--Incluyo mensaje arrojados por el UsuarioRequest-->
+                @include('template.partials.error')
 
                 <!--muestra contendos-->
                 @yield('contenido')
