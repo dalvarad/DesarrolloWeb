@@ -13,16 +13,11 @@
 		{!! Form::open(['route' => 'habitaciones.index', 'method' => 'GET', 'class' => 'navbar-form pull-right', 'name' => 'search-form']) !!}
 			<h5>Busque su tipo de habitación: </h5>
 			<div class="input-group">
+				
 				{!! Form::select('tipo_de_habitacion', ['single' => 'Single', 'matrimonial' => 'Matrimonial', 'double' => 'Double'], null,['class' => 'form-control', 'placeholder' => 'Buscar habitación' ,'required', 'aria-describedby' => 'search']) !!}
 				<span class="input-group-btn" id="search" ><button class="btn btn-default" type="button" type="submit" onclick="document.forms['search-form'].submit();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
-		{!! Form::open(['route' => 'habitaciones.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
-			<h5>Busque por <b>Tipo de Habitación:</b> </h5>
-			<div class="input-group">
-				{!! Form::text('tipo_de_habitacion', null, ['class' => 'form-control', 'placeholder' => 'Buscar' ,'required', 'aria-describedby' => 'search']) !!}
-				<span class="input-group-btn" id="search" ><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
 				
 			</div>
-			<hr>
 		{!! Form::close() !!}
 	<!--Fin de tipo de habitaciones-->
 	
