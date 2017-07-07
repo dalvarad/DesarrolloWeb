@@ -47,6 +47,7 @@ class UsuariosController extends Controller
     }
 
     public function update(Request $request, $id){
+        
         $user = Usuario::find($id);
     
         $user->nombre_usuario = $request->nombre_usuario;
