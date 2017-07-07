@@ -19,7 +19,6 @@ class ReservasController extends Controller
                     ->join('users', 'users.id', '=', 'reservas.id_us')
                     ->join('habitaciones', 'habitaciones.id', '=', 'reservas.id_ha')
 
-
                     ->select('users.name','users.rut', 'habitaciones.id', 'habitaciones.valor', 'reserva_comienza', 'reserva_termina')
                     ->get();
 
@@ -32,7 +31,13 @@ class ReservasController extends Controller
 
     public function create()
     {
-        return view('admin.reservas.create');
+        $lista_users = DB::table('users')->orderBy('rut')->lists('rut', 'id');
+
+        $lista_habitaciones = DB::table('habitaciones')->where('estado','desocupada')->orderBy('valor')->lists('valor', 'id');
+
+     //   dd($lista_habitaciones);
+
+        return view('admin.reservas.create')->with('lista_users',$lista_users)->with('lista_habitaciones', $lista_habitaciones);
     }
 
 

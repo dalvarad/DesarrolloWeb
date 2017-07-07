@@ -6,13 +6,12 @@
 
 	{!! Form::open(['route' => 'admin.reservas.store', 'method' => 'POST']) !!}
 
-	<p>falta arreglar vista y controlador</p>
-	{!! Form::label('id_us', 'ID_US (Rut Usuario->no aun)') !!}
-	{!! Form::number('id_us', null, ['class' => 'form-control', 'required']) !!}
+	{!! Form::label('id_us', 'RUT Usuario') !!}
+	{!! Form::select('id_us', [$lista_users], null, ['class' => 'form-control', 'required', 'placeholder' => 'Selecione RUT']) !!}
 
 	<p></p>
-	{!! Form::label('id_ha', 'ID Habitación') !!}
-	{!! Form::number('id_ha', null, ['class' => 'form-control', 'required']) !!}
+	{!! Form::label('id_ha', 'Valor Habitación') !!}
+	{!! Form::select('id_ha', [$lista_habitaciones], null, ['class' => 'form-control', 'required', 'placeholder' => 'Valor Habitación']) !!}
 
 	<p></p>
 	{!! Form::label('reserva_comienza', 'Fecha Inicio') !!}
