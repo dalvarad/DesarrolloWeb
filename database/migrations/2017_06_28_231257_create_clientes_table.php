@@ -16,8 +16,13 @@ class CreateClientesTable extends Migration
 
             $table->increments('id');
             $table->string('nombre_cliente');
-            $table->string('rut_cliente');
-            $table->date('hora_termino_real_cl');
+            $table->string('rut_cliente', 12)->unique();
+            $table->string('direccion');
+            $table->integer('telefono');            
+            $table->string('usuario')->unique();
+            $table->string('pass');
+
+            $table->rememberToken();            
             $table->timestamps();
         });
     }

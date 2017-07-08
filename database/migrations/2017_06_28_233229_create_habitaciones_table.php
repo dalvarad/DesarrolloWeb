@@ -15,7 +15,7 @@ class CreateHabitacionesTable extends Migration
          Schema::create('habitaciones',function(Blueprint $table){
 
             $table->increments('id');
-            $table->integer('valor');
+            $table->integer('valor');//->unsigned();
             $table->enum('estado', ['ocupada','desocupada'])->default('desocupada');
             $table->enum('tipo_de_habitacion', ['single','matrimonial', 'double'])->default('single');
 

@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
-
     protected $table = "usuarios";
 
     protected $fillable = ['nombre_usuario', 'rut_usuario' , 'usuario', 'pass', 'tipo'];
 
-    protected $hidden = ['pass'];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
-    public function pivotehabit(){
-   	
-   	return $this->hasOne('App\PivoteHabit');
-   	
-   }
+
+    public function reserva(){
+     return $this->hasMany('App\Reserva');
+    }
 }

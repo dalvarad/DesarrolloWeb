@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePivoteHabitsTable extends Migration
+class CreateReservasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,20 @@ class CreatePivoteHabitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pivotehabits',function(Blueprint $table){
+        Schema::create('reservas',function(Blueprint $table){
 
             $table->increments('id');
             $table->integer('id_us')->unsigned();
             $table->integer('id_ha')->unsigned();
-            $table->date('hora_inicio');
-            $table->date('hora_termino');
+            $table->integer('id_cl')->unsigned();
+            $table->datetime('reserva_comienza');
+            $table->datetime('reserva_termina');
+
 
             $table->foreign('id_us')->references('id')->on('usuarios')->onDelete('cascade');
             $table->foreign('id_ha')->references('id')->on('habitaciones')->onDelete('cascade');
+            $table->foreign('id_cl')->references('id')->on('clientes')->onDelete('cascade');
+            
 
             $table->timestamps();
         });
@@ -34,6 +38,6 @@ class CreatePivoteHabitsTable extends Migration
      */
     public function down()
     {
-        schema::drop('pivotehabits');
+        schema::drop('reservas');
     }
 }
