@@ -3,7 +3,10 @@
 @section('title', 'Lista de Usuarios')
 
 @section('contenido')
-	<a href="{{ route('admin.usuarios.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
+
+	<div align="center">
+		<a href="{{ route('admin.usuarios.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
+	</div>
 	<p></p>
 	<table class="table table-striped">
 		<thead>
@@ -31,6 +34,8 @@
 			@endforeach
 		</tbody>
 	</table>
-	{!! $usuarios->render() !!}
 
+	<div align="center">
+			{!! $usuarios->render() !!}
+	</div>
 @endsection

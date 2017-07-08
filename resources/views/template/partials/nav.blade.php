@@ -14,7 +14,8 @@
         <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
         <li><a href="{{url('quienessomos')}}"><span class="glyphicon glyphicon-sunglasses"></span> ¿Quiénes somos?</a></li>                
         <li><a href="{{url('hotel')}}"><span class="glyphicon glyphicon-header"></span> Hotel</a></li>
-        <li><a href="{{url('habitaciones')}}"><span class="glyphicon glyphicon-bed"></span> Habitaciones</a></li> 
+        <li><a href="{{route('admin.habitaciones.index')}}{{--url('habitaciones')--}}"><span class="glyphicon glyphicon-bed"></span> Habitaciones</a></li> 
+        <li><a href="{{route('admin.usuarios.index')}}{{--url('habitaciones')--}}"><span class="glyphicon glyphicon-bed"></span> usuarios</a></li>         
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

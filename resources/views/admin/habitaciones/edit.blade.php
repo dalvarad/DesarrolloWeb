@@ -1,6 +1,6 @@
 @extends('welcome')
 
-@section('title', 'Editar Habitación')
+@section('title', 'Editar Habitación Nº' . $habitacion->id)
 
 @section('contenido')
 

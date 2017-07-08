@@ -2,6 +2,7 @@
 
 use \Freshwork\ChileanBundle\Rut;
 
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -13,6 +14,7 @@ use \Freshwork\ChileanBundle\Rut;
 |
 */
 
+
 $factory->define(App\Usuario::class, function (Faker\Generator $faker) {
  
     return [
@@ -21,6 +23,18 @@ $factory->define(App\Usuario::class, function (Faker\Generator $faker) {
         'usuario' => $faker->userName,
         'pass' => bcrypt(str_random(10)),
         'tipo' => 'recepcionista'
+    ];
+
+});
+
+
+
+$factory->define(App\Habitacion::class, function (Faker\Generator $faker) {
+ 
+    return [
+        'valor' => $faker->numberBetween($min = 5000, $max = 250000),
+        'estado' => $faker->randomElement($array = array ('ocupada','desocupada')),
+        'tipo_de_habitacion' =>$faker->randomElement($array = array ('single','matrimonial','double')) 
     ];
 
 });

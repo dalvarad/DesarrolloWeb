@@ -46,7 +46,7 @@
         </div><!--FIN contenido centrado-->
 
         <!--pie de panel FALTA dejarlo al FINAL-->
-        <div class="panel panel-footer">
+        <div class="panel panel-footer" align="center">
             @include('template.partials.footer')
         </div>   
                

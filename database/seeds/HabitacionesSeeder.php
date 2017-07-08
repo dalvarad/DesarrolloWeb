@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class UsuariosSeeder extends Seeder
+class HabitacionesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class UsuariosSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Usuario::class, 20)->create();
+        factory(App\Habitacion::class, 20)->create();
     }
 }

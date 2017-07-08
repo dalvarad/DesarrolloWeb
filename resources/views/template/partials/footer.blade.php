@@ -1,5 +1,5 @@
-<footer class="container-fluid text-center bg-lightgray">
-    <div class="copyrights" style="margin-top:25px;">
+<footer class="bg-lightgray">
+    <div style="margin-top:20px;">
         <p>
             <span>Diseñado Para Taller de Desarrollo Avanzado de Aplicaciones Web</span>
             <br>

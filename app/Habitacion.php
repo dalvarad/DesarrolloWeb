@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Habitacion extends Model
 {
-   protected $table = "habitaciones";
 
-   protected $fillable = ['valor','estado','tipo_de_habitacion'];
+	protected $table = "habitaciones";
 
-   public function pivoteHabit(){
-   		return $this->hasOne('App\PivoteHabit');
+	protected $fillable = ['valor','estado','tipo_de_habitacion'];
+
+    public function pivoteHabit(){
+   	
+   	return $this->hasOne('App\PivoteHabit');
+
    }
 }

@@ -42,7 +42,7 @@ class HabitacionesController extends Controller
         $habitaciones = new Habitacion($request->all());
         $habitaciones->save();
 
-        Session::flash('message_success', "Se ha registrado la Habitacion Exitosamente!");
+        Session::flash('message_success', "Se ha registrado la Habitacion Nº$habitaciones->id Exitosamente!");
         return redirect(route('admin.habitaciones.index'));
     }
 
@@ -86,7 +86,7 @@ class HabitacionesController extends Controller
 
         $habitaciones ->save();
 
-        Session::flash('message_success', "Se ha modificado la habitación correctamente Exitosamente!!");
+        Session::flash('message_success', "Se ha modificado la habitación Nº$habitaciones->id Exitosamente!!");
         return redirect(route('admin.habitaciones.index'));
 
     }
@@ -102,7 +102,7 @@ class HabitacionesController extends Controller
         $habitacion = Habitacion::find($id);
         $habitacion-> delete();
 
-        Session::flash('message_danger', 'Se ha eliminado la Habitacion Exitosamente!!');
+        Session::flash('message_danger', "Se ha eliminado la Habitacion Nº$habitacion->id Exitosamente!!");
         return redirect(route('admin.habitaciones.index'));
     }
 }

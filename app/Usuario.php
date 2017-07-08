@@ -14,6 +14,8 @@ class Usuario extends Model
     protected $hidden = ['pass'];
 
     public function pivotehabit(){
-   		return $this->hasOne('App\PivoteHabit');
+   	
+   	return $this->hasOne('App\PivoteHabit');
+   	
    }
 }
