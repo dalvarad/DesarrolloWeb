@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Cliente;
+use Illuminate\Support\Facades\Session;
+use App\Http\Request\ClienteRequest;
+use Freshwork\ChileanBundle\Rut;
 
 class ClientesController extends Controller
 {
@@ -15,7 +18,9 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Cliente::orderBY('id', 'ASC')->paginate(10);
+
+        return view('admin.clientes.index')-with('clientes', $clientes);
     }
 
     /**
@@ -25,7 +30,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +39,7 @@ class ClientesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
         //
     }

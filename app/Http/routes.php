@@ -45,6 +45,11 @@ Route::group(['prefix' => 'admin'], function(){
 		'as' => 'admin.habitaciones.destroy'
 	]);	
 
+	Route::resource('clientes','ClientesController');
+	Route::get('clientes/{id}/destroy', [
+		'uses' => 'ClientesController@destroy',
+		'as' => 'admin.clientes.destroy'
+	]);
 });
 
 

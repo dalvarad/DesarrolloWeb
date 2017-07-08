@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Usuario;
 use Illuminate\Support\Facades\Session;
@@ -27,12 +26,12 @@ class UsuariosController extends Controller
 
     public function store(UsuarioRequest $request)
     {
-    	$user = new Usuario($request->all());
-    	$user->pass = bcrypt($request->pass);
-        $user->rut_usuario = RUT::parse($request->rut_usuario)->format(RUT::FORMAT_WITH_DASH);
-    	$user->save();
+    	$usuarios = new Usuario($request->all());
+    	$usuarios->pass = bcrypt($request->pass);
+        $usuarios->rut_usuario = RUT::parse($request->rut_usuario)->format(RUT::FORMAT_WITH_DASH);
+    	$usuarios->save();
 
-        Session::flash('message_success', "Se ha registrado el usuario $user->nombre_usuario Exitosamente!");
+        Session::flash('message_success', "Se ha registrado el usuario $usuarios->nombre_usuario Exitosamente!");
         return redirect(route('admin.usuarios.index'));
     }
 
@@ -42,33 +41,34 @@ class UsuariosController extends Controller
     }
 
     public function edit($id){
-        $user = Usuario::find($id);
-        return view('admin.usuarios.edit')->with('user', $user);
+        $usuarios = Usuario::find($id);
+        return view('admin.usuarios.edit')->with('usuarios', $usuarios);
     }
 
     public function update(Request $request, $id){
         
-        $user = Usuario::find($id);
+        $usuarios = Usuario::find($id);
     
-        $user->nombre_usuario = $request->nombre_usuario;
+        $usuarios->nombre_usuario = $request->nombre_usuario;
         $this->validate($request,[
             'rut_usuario' => 'cl_rut'
         ]);
-        $user->usuario = $request->usuario;
-        $user->tipo = $request->tipo;
+        $usuarios->rut_usuario = $request->rut_usuario;
+        $usuarios->usuario = $request->usuario;
+        $usuarios->tipo = $request->tipo;
 
-        $user->save();
+        $usuarios->save();
         
-        Session::flash('message_success', "Se ha modificado el usuario $user->nombre_usuario Exitosamente!");
+        Session::flash('message_success', "Se ha modificado el usuario $usuarios->nombre_usuario Exitosamente!");
         return redirect(route('admin.usuarios.index'));
      
     }
 
     public function destroy($id){
-        $user = Usuario::find($id);
-        $user->delete();    
+        $usuarios = Usuario::find($id);
+        $usuarios->delete();    
 
-        Session::flash('message_danger', "Se ha eliminado el usuario $user->nombre_usuario Exitosamente!");
+        Session::flash('message_danger', "Se ha eliminado el usuario $usuarios->nombre_usuario Exitosamente!");
         return redirect(route('admin.usuarios.index'));
     }
 }

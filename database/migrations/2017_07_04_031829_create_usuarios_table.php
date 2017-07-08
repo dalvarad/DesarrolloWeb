@@ -17,7 +17,7 @@ class CreateUsuariosTable extends Migration
 
             $table->increments('id');
             $table->string('nombre_usuario');
-            $table->string('rut_usuario', 10)->unique();
+            $table->string('rut_usuario', 12)->unique();
             $table->string('usuario')->unique();
             $table->string('pass');
             $table->enum('tipo', ['administrador','recepcionista'])->default('recepcionista');
