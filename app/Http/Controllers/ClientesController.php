@@ -12,34 +12,19 @@ use Freshwork\ChileanBundle\Rut;
 
 class ClientesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $clientes = Cliente::orderBy('id', 'ACS')->paginate(10);
+        $clientes = Cliente::orderBy('id', 'ASC')->paginate(10);
 
         return view('admin.clientes.index')->with('clientes', $clientes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.clientes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ClienteRequest $request)
     {
         $cliente = new Cliente($request->all());
@@ -47,50 +32,37 @@ class ClientesController extends Controller
         $cliente->rut_cliente = RUT::parse($request->rut_cliente)->format(RUT::FORMAT_WITH_DASH);
         $cliente->save();
 
-        Session::flash('message_success', "Se ha registrado el usuario $cliente->nombre_cliente Exitosamente!");
+        Session::flash('message_success', "Se ha registrado el cliente $cliente->nombre_cliente Exitosamente!");
         return redirect(route('admin.clientes.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $cliente = Cliente::find($id);
         return view('admin.clientes.edit')->with('cliente', $cliente);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $cliente = Cliente::find($id);
-    
-        $cliente->nombre_cliente = $request->nombre_cliente;
+
+        /*Valido manualmente con las mismas reglas de ClientRequest, 
+        ya que si utilizo ClienteRequest me obliga usar el arreglo completo, 
+        y en este caso, solo valido los campos que necesito*/
 
         $this->validate($request,[
-            'rut_cliente' => 'cl_rut'
+                'nombre_cliente' => 'min:4|max:120|required',
+                'direccion'      => 'max:100|required',
+                'telefono'       => 'min:8|max:12|required|',
+                'usuario'        => 'min:4|max:20|required|unique:clientes',
         ]);
 
+        $cliente->nombre_cliente = $request->nombre_cliente;
         $cliente->direccion = $request->direccion;
         $cliente->telefono = $request->telefono;
         $cliente->usuario = $request->usuario;
@@ -101,12 +73,6 @@ class ClientesController extends Controller
         return redirect(route('admin.clientes.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $cliente = Cliente::find($id);

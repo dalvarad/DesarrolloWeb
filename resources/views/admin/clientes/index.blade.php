@@ -4,7 +4,9 @@
 
 @section('contenido')
 
-	<a href="{{ route('admin.clientes.create') }}" class="btn btn-info">Registrar nuevo cliente</a>
+	<div align="center">
+		<a href="{{ route('admin.clientes.create') }}" class="btn btn-info">Registrar cliente</a>
+	</div>
 	<p></p>
 	<table class="table table-striped">
 		<thead>
@@ -25,7 +27,10 @@
 				<td>{{ $cliente->direccion}}</td>
 				<td>{{ $cliente->telefono}}</td>
 				<td>{{ $cliente->usuario}}</td>
-				<td><a href="{{ route('admin.clientes.edit', $cliente->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> <a href="{{ route('admin.clientes.destroy', $cliente->id) }}" onclick="return confirm('¿Está seguro de eliminar al cliente seleccionado?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
+				<td>
+					<a href="{{ route('admin.clientes.edit', $cliente->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
+					<a href="{{ route('admin.clientes.destroy', $cliente->id) }}" onclick="return confirm('¿Está seguro de eliminar al cliente seleccionado?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+				</td>
 
 			 </tr>	
 			@endforeach

@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="{{asset ('estilos/plugins/bootstrap/css/bootstrap.css')}}">
 	<link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/icono/icono.css') }}">
 	<link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/usuario/usuario.css') }}">
+
 </head>
 <body>
  	@include('admin.template.partials.adminav')
@@ -39,7 +40,7 @@
         <div class="panel panel-footer" align="center">
             @include('template.partials.footer')
         </div> 
-
-
 </body>
+    <script src="{{asset ('estilos/plugins/jquery-3.2.1.js')}}"></script>
+    <script src="{{asset ('estilos/plugins/bootstrap/js/bootstrap.js')}}"></script>
 </html>

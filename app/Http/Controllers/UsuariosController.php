@@ -48,11 +48,19 @@ class UsuariosController extends Controller
     public function update(Request $request, $id){
         
         $usuarios = Usuario::find($id);
-    
-        $usuarios->nombre_usuario = $request->nombre_usuario;
+
+        /*Valido manualmente con las mismas reglas de UsuariosRequest, 
+        ya que si utilizo UsuariosRequest me obliga usar el arreglo completo, 
+        y en este caso, solo valido los campos que necesito*/
+        
         $this->validate($request,[
-            'rut_usuario' => 'cl_rut'
+            'nombre_usuario' => 'min:4|max:120|required',
+            'rut_usuario' => 'max:12|required|unique:usuarios|cl_rut',
+            'usuario' => 'min:4|max:20|required|unique:usuarios',
+            'tipo' => 'required'
         ]);
+
+        $usuarios->nombre_usuario = $request->nombre_usuario;
         $usuarios->rut_usuario = $request->rut_usuario;
         $usuarios->usuario = $request->usuario;
         $usuarios->tipo = $request->tipo;
