@@ -17,11 +17,12 @@ class CreateUsuariosTable extends Migration
 
             $table->increments('id');
             $table->string('nombre_usuario');
-            $table->string('rut_usuario');
-            $table->string('usuario');
+            $table->string('rut_usuario', 12)->unique();
+            $table->string('usuario')->unique();
             $table->string('pass');
             $table->enum('tipo', ['administrador','recepcionista'])->default('recepcionista');
 
+            $table->rememberToken();
             $table->timestamps();
         });
     }

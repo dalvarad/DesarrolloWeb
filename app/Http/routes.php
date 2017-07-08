@@ -33,18 +33,27 @@ Route::get('contacto', function (){
 
 Route::group(['prefix' => 'admin'], function(){
 	
+	/*rutas usuarios*/
 	Route::resource('usuarios','UsuariosController');
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
 		'as' => 'admin.usuarios.destroy'
 	]);
 
+	/*rutas habitaciones*/
 	Route::resource('habitaciones','HabitacionesController');
 	Route::get('habitaciones/{id}/destroy', [
 		'uses' => 'HabitacionesController@destroy',
 		'as' => 'admin.habitaciones.destroy'
 	]);	
 
+	/*rutas clientes*/
+	Route::resource('clientes','ClientesController');
+	Route::get('clientes/{id}/destroy',[
+		'uses' =>'ClientesController@destroy',
+		'as' => 'admin.clientes.destroy'
+
+		]);
 });
 
 

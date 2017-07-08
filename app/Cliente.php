@@ -8,11 +8,14 @@ class Cliente extends Model
 {
     protected $table = "clientes";
 
-    protected $fillable = ['nombre_cliente','rut_cliente','hora_termino_real_cl'];
+    protected $fillable = ['nombre_cliente','rut_cliente','direccion', 'telefono', 'usuario', 'pass'];
 
-    public function pivoteHabit(){
-    	return $this->hasMany('App\pivoteHabit');
+    protected $hidden = [
+        'pass', 'remember_token',
+    ];    
+
+
+    public function reserva(){
+     return $this->hasMany('App\Reserva');
     }
-
-
 }

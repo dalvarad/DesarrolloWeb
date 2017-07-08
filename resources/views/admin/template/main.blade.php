@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>@yield('title', 'Hotel Acuarela') | Hotel Acuarela</title>
-    <link rel="stylesheet" href="{{asset ('estilos/plugins/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/icono/icono.css') }}">
-    <script src="{{asset ('estilos/plugins/jquery-3.2.1.js')}}"></script>
-    <script src="{{asset ('estilos/plugins/bootstrap/js/bootstrap.js')}}"></script>    
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="{{asset ('estilos/plugins/bootstrap/css/bootstrap.css')}}">
+	<link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/icono/icono.css') }}">
+	<link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/usuario/usuario.css') }}">
 </head>
-    <body>
-        
-    <!--
-        ESTE ES EL MOLDE PARA EL SITIO WEB, 
-        LAS OTRAS VISTAS INCLUYEN ESTA 
-        PARA QUE SE VEAN TODAS IGUALES
-    -->
+<body>
+ 	@include('admin.template.partials.adminav')
 
-        <!--Barra Menu-->
-        @include('template.partials.nav')
-
-        <!--contenido centrado-->
+ 	<!--contenido centrado-->
         <div class="container">
             
             <!--titulo panel-->
@@ -47,7 +38,8 @@
         <!--pie de panel FALTA dejarlo al FINAL-->
         <div class="panel panel-footer" align="center">
             @include('template.partials.footer')
-        </div>   
-               
-    </body>
+        </div> 
+
+
+</body>
 </html>
