@@ -10,8 +10,8 @@
 	{!! Form::text('nombre_cliente', null, ['class' => 'form-control', 'placeholder' => 'Ramón Ramírez Roman', 'required']) !!}
 	
 	<p></p>
-	{!! Form::label('rut_cliente', 'Rut del Cliente') !!}
-	{!! Form::text('rut_cliente', null, ['class' => 'form-control', 'placeholder' => '1.111.111-1', 'required']) !!}
+		{!! Form::label('rut_cliente', 'Rut Usuario') !!}
+		{!! Form::text('rut_cliente', null, ['class' => 'form-control', 'placeholder' => '11.111.111-1', 'required']) !!}
 
 	<p></p>
 	{!! Form::label('direccion', 'Direccion del Cliente') !!}
@@ -26,10 +26,10 @@
 	{!! Form::text('usuario', null, ['class' => 'form-control', 'placeholder' => 'rolo123', 'required']) !!}
 
 	<p></p>
-	{!! Form::label('pass', 'Contraseña Cliente') !!}
-	{!! Form::password('pass', ['class' => 'form-control', 'placeholder' => '******', 'required']) !!}
+	{!! Form::label('pass_confirmation', 'Contraseña Cliente') !!}
+	{!! Form::password('pass_confirmation',['class' => 'form-control', 'placeholder' => '********', 'required']) !!}
 
-    <p></p>
+	<p></p>
 	{!! Form::label('pass', 'Confirmar Contraseña') !!}
 	{!! Form::password('pass',['class' => 'form-control', 'placeholder' => '********', 'required']) !!}
  

@@ -25,10 +25,10 @@ class ClienteRequest extends Request
     {
         return [
             'nombre_cliente' => 'min:4|max:120|required',
-            'rut_cliente'    => 'max:12|required|unique:cliente|cl_rut',
+            'rut_cliente'    => 'max:12|required|unique:clientes|cl_rut',
             'direccion'      => 'max:100|required',
             'telefono'       => 'min:8|max:12|required|',
-            'usuario'        => 'min:4|max:20|required|unique:cliente',
+            'usuario'        => 'min:4|max:20|required|unique:clientes',
             'pass'           => 'min:6|max:40|confirmed|required'
         ];
     }

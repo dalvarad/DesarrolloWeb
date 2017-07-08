@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ClienteRequest;
 use Freshwork\ChileanBundle\Rut;
 
+
 class ClientesController extends Controller
 {
     /**
