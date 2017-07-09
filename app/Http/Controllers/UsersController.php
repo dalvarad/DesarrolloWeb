@@ -55,7 +55,6 @@ class UsersController extends Controller
         
         $this->validate($request,[
             'name' => 'min:4|max:120|required',
-            'rut' => 'max:12|required|unique:users|cl_rut',
             'email' => 'required',
             'type' => 'required'
         ]);

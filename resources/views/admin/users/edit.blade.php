@@ -11,10 +11,6 @@
 		{!! Form::text('name', $users->name, ['class' => 'form-control', 'placeholder' => 'Ramón Ramírez Roman', 'required']) !!}
 
 		<p></p>
-		{!! Form::label('rut', 'Rut Usuario') !!}
-		{!! Form::text('rut', $users->rut, ['class' => 'form-control', 'placeholder' => '11.111.111-1', 'required']) !!}
-
-		<p></p>
 		{!! Form::label('email', 'Email') !!}
 		{!! Form::email('email', $users->email, ['class' => 'form-control', 'placeholder' => 'correo@correo.com', 'required']) !!}
 

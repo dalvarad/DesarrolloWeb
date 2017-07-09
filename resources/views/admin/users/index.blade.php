@@ -25,8 +25,7 @@
 					<td>
 						@if($user->type == "administrador")
 							<span class="label label-danger">{{ $user->type }}</span>
-						@endif
-						@if($user->type == "cliente")
+						@elseif($user->type == "cliente")
 							<span class="label label-info">{{ $user->type }}</span>
 						@else
 							<span class="label label-primary">{{ $user->type }}</span>
