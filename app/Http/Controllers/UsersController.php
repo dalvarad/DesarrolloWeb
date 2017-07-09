@@ -49,13 +49,13 @@ class UsersController extends Controller
         
         $users = User::find($id);
 
-        /*Valido manualmente con las mismas reglas de UsuariosRequest, 
-        ya que si utilizo UsuariosRequest me obliga usar el arreglo completo, 
+        /*Valido manualmente con las mismas reglas de UsersRequest, 
+        ya que si utilizo UsersRequest me obliga usar el arreglo completo, 
         y en este caso, solo valido los campos que necesito*/
         
         $this->validate($request,[
             'name' => 'min:4|max:120|required',
-            'rut' => 'max:12|required|unique:usuarios|cl_rut',
+            'rut' => 'max:12|required|unique:users|cl_rut',
             'email' => 'required',
             'type' => 'required'
         ]);

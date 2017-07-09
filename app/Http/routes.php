@@ -33,7 +33,7 @@ Route::get('contacto', function (){
 
 Route::group(['prefix' => 'admin'], function(){
 	
-	/*rutas usuarios*/
+	/*rutas users*/
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy', [
 		'uses' => 'UsersController@destroy',

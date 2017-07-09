@@ -17,10 +17,12 @@ class CreateReservasTable extends Migration
             $table->increments('id');
             $table->integer('id_us')->unsigned();
             $table->integer('id_ha')->unsigned();
+            $table->integer('id_cl')->unsigned();            
             $table->datetime('reserva_comienza');
             $table->datetime('reserva_termina');
 
             $table->foreign('id_us')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_cl')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_ha')->references('id')->on('habitaciones')->onDelete('cascade');
             
 
