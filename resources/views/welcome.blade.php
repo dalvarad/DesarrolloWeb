@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Hotel Acuarela') | Hotel Acuarela</title>
+    <title>@yield('title', 'Hotel Acuarella') | Hotel Acuarella</title>
     <link rel="stylesheet" href="{{asset ('estilos/plugins/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/icono/icono.css') }}">
+    <link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/usuario/usuario.css') }}">
     <script src="{{asset ('estilos/plugins/jquery-3.2.1.js')}}"></script>
     <script src="{{asset ('estilos/plugins/bootstrap/js/bootstrap.js')}}"></script>    
 </head>

@@ -9,15 +9,23 @@
       </button>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div id="navbar" class="navbar-collapse collapse">
+     @if(Auth::user())
+            <ul class="nav navbar-nav navbar-center">
+                <li><a href="{{url('home')}}"><span class="icon-home3"></span> Inicio</a></li>
+                <li><a href="{{url('admin/users')}}"><span class="icon-user">Usuarios</span></a></li>
+                <li><a href="{{url('hotel')}}"><span class="glyphicon glyphicon-header"></span> Hotel</a></li>
+                <li><a href="{{url('admin/habitaciones')}}"><span class="icon-briefcase"></span> Habitaciones</a></li>
+                <li><a href="{{url('quienessomos')}}"><span class="icon-earth"></span> ¿Quiénes somos?</a></li>    
+            </ul>
+      @else
       <ul class="nav navbar-nav">
         <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-        <li><a href="{{url('quienessomos')}}"><span class="glyphicon glyphicon-sunglasses"></span> ¿Quiénes somos?</a></li>                
         <li><a href="{{url('hotel')}}"><span class="glyphicon glyphicon-header"></span> Hotel</a></li>
-        <li><a href="{{route('admin.habitaciones.index')}}{{--url('habitaciones')--}}"><span class="glyphicon glyphicon-bed"></span> Habitaciones</a></li> 
-        <li><a href="{{route('admin.users.index')}}{{--url('habitaciones')--}}"><span class="glyphicon glyphicon-bed"></span> usuarios</a></li>         
+        <li><a href="{{url('habitaciones')}}"><span class="glyphicon glyphicon-bed"></span> Habitaciones</a></li>
+        <li><a href="{{url('quienessomos')}}"><span class="glyphicon glyphicon-sunglasses"></span> ¿Quiénes somos?</a></li>
       </ul>
-
+      @endif
       <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())

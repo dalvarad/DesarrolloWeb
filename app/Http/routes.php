@@ -12,20 +12,32 @@
 Route::get('/', function () {
     return view('inicio/index');
 });
+
 Route::get('quienessomos', function (){
 	return view('quienessomos/index');
 });
+
 Route::get('hotel', function (){
 	return view('hotel/index');
 });
-Route::get('habitaciones', function (){
-	return view('habitaciones/index');
-});
+
+/*Usa el controlador DatosController para mostrar datos de las habitaciones en la base de datos*/
+Route::get('habitaciones',[
+	'as'   => 'habitaciones.index',
+	'uses' => 'DatosController@index' 
+]);
+
 Route::get('contacto', function (){
 	return view('contacto/index');
 });
+
 /*rutas usuarios*/
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+
+	Route::get('/', ['as' => 'admin.index', function (){
+		return view('welcome');
+
+	}]);
 	
 	/*rutas users*/
 	Route::resource('users','UsersController');
@@ -46,5 +58,6 @@ Route::group(['prefix' => 'admin'], function(){
 		'as' => 'admin.reservas.destroy'
 	]);	
 });
+
 Route::auth();
 Route::get('/home', 'HomeController@index');
