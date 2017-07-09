@@ -31,8 +31,13 @@ Route::get('contacto', function (){
 	return view('contacto/index');
 });
 
-Route::group(['prefix' => 'admin'], function(){
-	
+Route::group(['prefix' => 'admin'], function()
+{
+	/*ruta de bienvenida*/
+	Route::get('/admin', function () {
+    	return view('admin/index');
+	});
+
 	/*rutas usuarios*/
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy', [
