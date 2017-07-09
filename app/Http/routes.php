@@ -31,20 +31,12 @@ Route::get('contacto', function (){
 	return view('contacto/index');
 });
 
-<<<<<<< HEAD
-Route::group(['prefix' => 'admin'], function()
-{
-	/*ruta de bienvenida*/
-	Route::get('/admin', function () {
-    	return view('admin/index');
-	});
 
-	/*rutas usuarios*/
-=======
+
+/*rutas usuarios*/
 Route::group(['prefix' => 'admin'], function(){
 	
 	/*rutas users*/
->>>>>>> 9abb58acd389ca2e5e3e819f120f0dc5eafad631
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy', [
 		'uses' => 'UsersController@destroy',
@@ -58,32 +50,15 @@ Route::group(['prefix' => 'admin'], function(){
 		'as' => 'admin.habitaciones.destroy'
 	]);	
 
-	/*rutas clientes*/
-	Route::resource('clientes','ClientesController');
-	Route::get('clientes/{id}/destroy',[
-		'uses' =>'ClientesController@destroy',
-		'as' => 'admin.clientes.destroy'
+	/*rutas reservas*/
+	Route::resource('reservas','ReservasController');
+	Route::get('reservas/{id}/destroy',[
+		'uses' =>'ReservasController@destroy',
+		'as' => 'admin.reservas.destroy'
 
-		]);
+	]);	
 });
 
-
-/*Rutas de Autentificacion*/
-Route::get('admin/auth/login', [
-	'uses' => 'Auth\AuthController@getLogin',
-	'as' => 'admin.auth.login' 
-]);
-
-Route::post('admin/auth/login', [
-	'uses' => 'Auth\AuthController@postLogin',
-	'as' => 'admin.auth.login' 
-]);
-
-Route::get('admin/auth/logout', [
-	'uses' => 'Auth\AuthController@getLogout',
-	'as' => 'admin.auth.logout' 
-]);
-/*Fin Rutas Autentificación */
 
 Route::auth();
 

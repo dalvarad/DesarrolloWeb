@@ -14,7 +14,6 @@
 			<th>ID Reserva</th>
 			<th>Rut Usuario</th>
 			<th>ID Habitación</th>
-			<th>Rut Cliente</th>
 			<th>Reserva Comienza</th>
 			<th>Reserva Termina</th>
 			<th>Acción</th>
@@ -25,7 +24,6 @@
 				<td>{{ $reserva->id }}</td>
 				<td>{{ $reserva->id_us }}</td>
 				<td>{{ $reserva->id_ha }}</td>
-				<td>{{ $reserva->id_cl }}</td>
 				<td>{{ $reserva->reserva_comienza }}</td>
 				<td>{{ $reserva->reserva_termina }}</td>
 				<td>

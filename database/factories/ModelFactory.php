@@ -17,6 +17,8 @@ use \Freshwork\ChileanBundle\Rut;
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
  
+    $faker = Faker\Factory::create('es_ES', 'es_PE,', 'es_VE', 'es_AR');
+
     return [
         'name'      => $faker->name,
         'rut'       => Rut::set(rand(1000000, 25000000))->fix()->format(Rut::FORMAT_WITH_DASH),

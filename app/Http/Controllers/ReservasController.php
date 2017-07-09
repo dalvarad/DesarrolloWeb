@@ -3,84 +3,79 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+Use App\Reserva;
+use Illuminate\Support\Facades\Session;
+
 
 class ReservasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $reservas = Reserva::orderBy('id', 'ASC')->paginate(10);
+
+        return view('admin.reservas.index')->with('reservas', $reservas);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function create()
     {
-        //
+        return view('admin.reservas.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function store(Request $request)
     {
-        //
+        $reservas = new Reserva($request->all());
+        $reservas-> save();
+
+        Session::flash('message_success', "Se ha registrado la reserva Nº $reservas->id Existosamente!");
+        return redirect(route('admin.reservas.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function show($id)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function edit($id)
     {
-        //
+        $reservas = Reserva::find($id);
+        return view('admin.reservas.edit')-with('reservas', $reservas);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function update(Request $request, $id)
     {
-        //
+        $reservas = Reserva::find($id);
+
+        $reservas->id_us = $request->id_us;
+        $reservas->id_ha = $request->id_ha;
+        $reservas->id_cl = $request->id_cl;
+        $reservas->reserva_comienza = $request->reserva_comienza;
+        $reservas->reserva_termina = $request->reserva_termina;
+
+        $reservas->save();
+
+        Session::flash('message_success',"Se ha modificado la reserva Nº $reservas->id Existosamente!");
+        return (route('admin.reservas.edit'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function destroy($id)
     {
-        //
+        $reservas = Reserva::find($id);
+        $reservas->delete();
+
+        Session::flash('message_success', "Se ha eliminado la reserva $reservas->id Existosamente!");
+        return (route('admin.reservas.index'));
     }
 }

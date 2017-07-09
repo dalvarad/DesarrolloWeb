@@ -11,11 +11,6 @@ class User extends Authenticatable
         'name','rut', 'email', 'password', 'type',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
