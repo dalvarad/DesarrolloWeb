@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 
 
-class UsuarioRequest extends Request
+class UserRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,11 @@ class UsuarioRequest extends Request
     public function rules()
     {
         return [
-            'nombre_usuario' => 'min:4|max:120|required',
-            'rut_usuario' => 'max:12|required|unique:usuarios|cl_rut',
-            'usuario' => 'min:4|max:20|required|unique:usuarios',
-            'pass' => 'min:6|max:40|confirmed|required',
-            'tipo' => 'required'
+            'name' => 'min:4|max:120|required',
+            'rut' => 'max:12|required|unique:users|cl_rut',
+            'email' => 'min:5|max:120|required|unique:users',
+            'password' => 'min:6|max:40|confirmed|required',
+            'type' => 'required'
         ];
     }
 }

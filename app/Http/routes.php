@@ -34,10 +34,10 @@ Route::get('contacto', function (){
 Route::group(['prefix' => 'admin'], function(){
 	
 	/*rutas usuarios*/
-	Route::resource('usuarios','UsuariosController');
-	Route::get('usuarios/{id}/destroy', [
-		'uses' => 'UsuariosController@destroy',
-		'as' => 'admin.usuarios.destroy'
+	Route::resource('users','UsersController');
+	Route::get('users/{id}/destroy', [
+		'uses' => 'UsersController@destroy',
+		'as' => 'admin.users.destroy'
 	]);
 
 	/*rutas habitaciones*/
@@ -73,3 +73,7 @@ Route::get('admin/auth/logout', [
 	'as' => 'admin.auth.logout' 
 ]);
 /*Fin Rutas Autentificación */
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
