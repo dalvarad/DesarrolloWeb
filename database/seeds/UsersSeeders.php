@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class ClientesSeeder extends Seeder
+class UsersSeeders extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class ClientesSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Cliente::class, 20)->create();
+		factory(App\User::class, 20)->create();
     }
 }

@@ -31,6 +31,7 @@ Route::get('contacto', function (){
 	return view('contacto/index');
 });
 
+<<<<<<< HEAD
 Route::group(['prefix' => 'admin'], function()
 {
 	/*ruta de bienvenida*/
@@ -39,6 +40,11 @@ Route::group(['prefix' => 'admin'], function()
 	});
 
 	/*rutas usuarios*/
+=======
+Route::group(['prefix' => 'admin'], function(){
+	
+	/*rutas users*/
+>>>>>>> 9abb58acd389ca2e5e3e819f120f0dc5eafad631
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy', [
 		'uses' => 'UsersController@destroy',
