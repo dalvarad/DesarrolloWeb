@@ -14,4 +14,9 @@ class Habitacion extends Model
     public function reserva(){
    	 return $this->hasOne('App\Reserva');
 	}
+
+	public function scopeSearch($query, $tipo_de_habitacion){
+
+		return $query->where('tipo_de_habitacion', 'LIKE', "%$tipo_de_habitacion%");
+	}
 }

@@ -16,7 +16,7 @@
 
 		<p></p>
 		{!! Form::label('tipo_de_habitacion', 'Tipo de Habitación') !!}
-		{!! Form::select('tipo_de_habitacion', ['' => 'Tipo', 'single' => 'Single', 'matrimonial' => 'Matrimonial', 'double' => 'Double'], null, ['class' => 'form-control',  'required']) !!}
+		{!! Form::select('tipo_de_habitacion', ['single' => 'Single', 'matrimonial' => 'Matrimonial', 'double' => 'Double'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción...' ,'required']) !!}
 
 		<p></p>
 		<div align="center">

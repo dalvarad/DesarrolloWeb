@@ -9,8 +9,8 @@ use App\Habitacion;
 
 class DatosController extends Controller
 {
-    public function index(){
-    	$habitaciones = Habitacion::orderBy('valor', 'ASC')->paginate(10);
+    public function index(Request $request){
+    	$habitaciones = Habitacion::search($request->tipo_de_habitacion)->orderBy('valor', 'ASC')->paginate(10);
     	return view('habitaciones.index')->with('habitaciones', $habitaciones);
     }
 }

@@ -41,8 +41,6 @@
 
                 <!--muestra contendos-->
                 @yield('contenido')
-
-                @include('template.partials.carousel')
                 
             </div>
         </div><!--FIN contenido centrado-->
