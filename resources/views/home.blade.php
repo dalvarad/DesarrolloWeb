@@ -1,17 +1,15 @@
 @extends('admin.template.main')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+@section('title', 'Bienvenido al panel de administración Hotel Acuerrella.')
 
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('contenido')
+<style type="text/css">
+        body {
+            background-image: url("fondo/adminbg2.jpg");
+            background-color: #C4D4EA;
+        }
+    </style>
+
+
+
 @endsection

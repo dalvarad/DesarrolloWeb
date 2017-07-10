@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/usuario/usuario.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            background-image: url("fondo/guestBg.jpg");
+            background-color: #C4D4EA;
+        }
+    </style>
 </head>
     <body>
         

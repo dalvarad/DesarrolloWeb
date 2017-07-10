@@ -18,4 +18,9 @@ class User extends Authenticatable
     public function reserva(){
         return $this->hasMany('App\Reserva');
     }
+
+    public function scopeSearch($query, $type){
+
+		return $query->where('type', 'LIKE', "%$type%");
+	}
 }

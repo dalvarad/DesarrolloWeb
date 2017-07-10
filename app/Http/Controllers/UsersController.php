@@ -12,9 +12,9 @@ use Freshwork\ChileanBundle\Rut;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    	$users = User::orderBy('id', 'ASC')->paginate(10);
+    	$users = User::search($request->type)->orderBy('id', 'ASC')->paginate(10);
 
         return view('admin.users.index')->with('users', $users);
     }

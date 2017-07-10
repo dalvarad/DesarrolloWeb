@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+        body {
+            background-image: url("fondo/guestBg.jpg");
+            background-color: #C4D4EA;
+        }
+    </style>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

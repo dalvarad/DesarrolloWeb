@@ -6,6 +6,17 @@
 
 	<div align="center">
 		<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
+		<!--Buscador de tipo de habitaciones-->
+		{!! Form::open(['route' => 'admin.users.index', 'method' => 'GET', 'class' => 'navbar-form pull-right', 'name' => 'search-form']) !!}
+			<h5>Busque su tipo de usuario: </h5>
+			<div class="input-group">
+				{!! Form::select('type', ['administrador' => 'Administrador', 'recepcionista' => 'Recepcionista', 'cliente' => 'Cliente'], null,['class' => 'form-control', 'placeholder' => 'Buscar usuario' ,'required', 'aria-describedby' => 'search']) !!}
+				<span class="input-group-btn" id="search" ><button class="btn btn-default" type="button" type="submit" onclick="document.forms['search-form'].submit();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
+				
+			</div>
+		{!! Form::close() !!}
+	<!--Fin de tipo de habitaciones-->
+	<p></p>
 	</div>
 	<p></p>
 	<table class="table table-striped">
