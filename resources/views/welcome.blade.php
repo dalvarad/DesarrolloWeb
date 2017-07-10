@@ -42,10 +42,9 @@
                 <!--muestra contendos-->
                 @yield('contenido')
 
-                
+                @include('template.partials.carousel')
                 
             </div>
-            @include('template.partials.carousel')
         </div><!--FIN contenido centrado-->
 
         <!--pie de panel FALTA dejarlo al FINAL-->
