@@ -20,8 +20,8 @@ class CreateReservasTable extends Migration
             $table->datetime('reserva_comienza');
             $table->datetime('reserva_termina');
 
-            $table->foreign('id_us')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('id_ha')->references('id')->on('habitaciones')->onDelete('cascade');
+            $table->foreign('id_us')->references('id')->on('users');
+            $table->foreign('id_ha')->references('id')->on('habitaciones');
             
 
             $table->timestamps();

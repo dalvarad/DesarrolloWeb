@@ -6,15 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 Use App\Reserva;
 use Illuminate\Support\Facades\Session;
+use DB;
 
 
 class ReservasController extends Controller
 {
     public function index()
     {
-        $reservas = Reserva::orderBy('id', 'ASC')->paginate(10);
+      /*  $reservas = Reserva::orderBy('id', 'DSC')->paginate(10);*/
 
-        return view('admin.reservas.index')->with('reservas', $reservas);
+        $reservas = DB::table('reservas')
+                    ->join('users', 'users.id', '=', 'reservas.id_us')
+                    ->join('habitaciones', 'habitaciones.id', '=', 'reservas.id_ha')
+
+
+                    ->select('users.name','users.rut', 'habitaciones.id', 'habitaciones.valor', 'reserva_comienza', 'reserva_termina')
+                    ->get();
+
+     //   dd($reservas);
+
+        return view('admin.reservas.index', ['reservas'=>$reservas]);//->with('reservas', $reservas);
     }
 
 
@@ -47,6 +58,7 @@ class ReservasController extends Controller
     public function edit($id)
     {
         $reservas = Reserva::find($id);
+        dd($reservas);
         return view('admin.reservas.edit')-with('reservas', $reservas);
     }
 
@@ -72,6 +84,7 @@ class ReservasController extends Controller
     public function destroy($id)
     {
         $reservas = Reserva::find($id);
+        dd($reservas);
         $reservas->delete();
 
         Session::flash('message_success', "Se ha eliminado la reserva $reservas->id Existosamente!");
