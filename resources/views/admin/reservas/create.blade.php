@@ -6,7 +6,7 @@
 
 	{!! Form::open(['route' => 'admin.reservas.store', 'method' => 'POST']) !!}
 
-	<p></p>
+	<p>falta arreglar vista y controlador</p>
 	{!! Form::label('id_us', 'ID_US (Rut Usuario->no aun)') !!}
 	{!! Form::number('id_us', null, ['class' => 'form-control', 'required']) !!}
 

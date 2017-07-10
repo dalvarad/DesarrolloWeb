@@ -11,9 +11,10 @@
 
 	<table class="table table-striped">
 		<thead>
-			<th>ID Reserva</th>
-			<th>Rut Usuario</th>
-			<th>ID Habitación</th>
+			<th>Nombre Cliente</th>
+			<th>Rut Cliente</th>
+			<th>Habitación</th>
+			<th>Valor</th>			
 			<th>Reserva Comienza</th>
 			<th>Reserva Termina</th>
 			<th>Acción</th>
@@ -21,9 +22,10 @@
 		<tbody>
 			@foreach($reservas as $reserva)
 			<tr>
+				<td>{{ $reserva->name }}</td>
+				<td>{{ $reserva->rut }}</td>
 				<td>{{ $reserva->id }}</td>
-				<td>{{ $reserva->id_us }}</td>
-				<td>{{ $reserva->id_ha }}</td>
+				<td>{{ $reserva->valor }}</td>
 				<td>{{ $reserva->reserva_comienza }}</td>
 				<td>{{ $reserva->reserva_termina }}</td>
 				<td>
@@ -34,8 +36,9 @@
 			@endforeach
 		</tbody>
 	</table>
-
+{{--
 	<div align="center">
 		{!! $reservas->render() !!}
 	</div>
+--}}
 @endsection
