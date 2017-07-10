@@ -19,7 +19,6 @@
 		{!! Form::select('tipo_de_habitacion', ['' => 'Tipo', 'single' => 'Single', 'matrimonial' => 'Matrimonial', 'double' => 'Double'], null, ['class' => 'form-control',  'required']) !!}
 
 		<p></p>
-
 		<div align="center">
 			{!! Form::submit('Registrar Habitación', ['class' => 'btn btn-primary']) !!}
 		</div>

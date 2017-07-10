@@ -58,7 +58,6 @@ class ReservasController extends Controller
 
         $reservas->id_us = $request->id_us;
         $reservas->id_ha = $request->id_ha;
-        $reservas->id_cl = $request->id_cl;
         $reservas->reserva_comienza = $request->reserva_comienza;
         $reservas->reserva_termina = $request->reserva_termina;
 
