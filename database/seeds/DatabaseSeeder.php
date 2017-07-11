@@ -8,5 +8,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersSeeders::class);
     	$this->call(HabitacionesSeeder::class);
+    	$this->call(ReservasSeeder::class);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use \Freshwork\ChileanBundle\Rut;
+use App\User;
+use App\Habitacion;
 
 
 /*
@@ -36,6 +38,18 @@ $factory->define(App\Habitacion::class, function (Faker\Generator $faker) {
         'valor'                 => $faker->numberBetween($min = 5000, $max = 250000),
         'estado'                => $faker->randomElement($array = array ('ocupada','desocupada')),
         'tipo_de_habitacion'    => $faker->randomElement($array = array ('single','matrimonial','double')) 
+    ];
+
+});
+
+
+$factory->define(App\Reserva::class, function (Faker\Generator $faker) {
+ 
+    return [
+        'id_us'                 => User::all()->random()->id,
+        'id_ha'                 => Habitacion::all()->random()->id,
+        'reserva_comienza'      => $faker->dateTimeBetween('+0 days', '+5 month'),
+        'reserva_termina'       => $faker->dateTimeBetween('+0 days', '+5 month')
     ];
 
 });

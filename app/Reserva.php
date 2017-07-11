@@ -10,7 +10,6 @@ class Reserva extends Model
 
     protected $fillable = ['id_us', 'id_ha', 'reserva_comienza', 'reserva_termina'];
 
-
    public function users(){
    	return $this->belongsTo('App\User');
    }

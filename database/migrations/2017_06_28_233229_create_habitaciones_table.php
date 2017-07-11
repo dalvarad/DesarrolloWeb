@@ -30,6 +30,6 @@ class CreateHabitacionesTable extends Migration
      */
     public function down()
     {
-        schema::drop('habitaciones'); 
+        Schema::drop('habitaciones'); 
     }
 }
