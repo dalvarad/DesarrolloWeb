@@ -21,8 +21,8 @@ class ReservasController extends Controller
                     ->join('users', 'users.id', '=', 'reservas.id_us')
                     ->join('habitaciones', 'habitaciones.id', '=', 'reservas.id_ha')
 
-                    ->select('users.name','users.rut', 'habitaciones.id', 'habitaciones.valor', 'reserva_comienza', 'reserva_termina')
-                    ->orderBy('reserva_comienza')
+                    ->select('reservas.*', 'users.name', 'habitaciones.valor')
+                    ->orderBy('reservas.id','DESC')
                     ->get();
 
      //   dd($reservas);
@@ -64,16 +64,26 @@ class ReservasController extends Controller
 
     public function show($id)
     {
-        
+        //
     }
-
-
 
     public function edit($id)
     {
         $reservas = Reserva::find($id);
-        dd($reservas);
-        return view('admin.reservas.edit')-with('reservas', $reservas);
+
+        $lista_users = DB::table('users')
+                     ->where('type','cliente')
+                     ->orderBy('rut')
+                     ->lists('rut', 'id');
+        
+
+        $lista_habitaciones = DB::table('habitaciones')
+                            ->where('estado','desocupada')
+                            ->orderBy('valor')
+                            ->lists('valor', 'id');
+
+        
+        return view('admin.reservas.edit')->with('reservas', $reservas)->with('lista_habitaciones', $lista_habitaciones)->with('lista_users', $lista_users);
     }
 
 
@@ -82,26 +92,21 @@ class ReservasController extends Controller
     {
         $reservas = Reserva::find($id);
 
-        $reservas->id_us = $request->id_us;
-        $reservas->id_ha = $request->id_ha;
-        $reservas->reserva_comienza = $request->reserva_comienza;
-        $reservas->reserva_termina = $request->reserva_termina;
-
+        $reservas->fill($request->all());
         $reservas->save();
 
-        Session::flash('message_success',"Se ha modificado la reserva Nº $reservas->id Existosamente!");
-        return (route('admin.reservas.edit'));
+        Session::flash('message_success', "Se ha modificado la reserva $reservas->id Exitosamente!");
+        return redirect(route('admin.reservas.index'));
     }
 
 
 
     public function destroy($id)
     {
-        $reservas = Reserva::find($id);
-        dd($reservas);
-        $reservas->delete();
+        $reserva = Reserva::find($id);
+        $reserva->delete();
 
-        Session::flash('message_success', "Se ha eliminado la reserva $reservas->id Existosamente!");
-        return (route('admin.reservas.index'));
+        Session::flash('message_danger', "Se ha eliminado la reserva $reserva->id Exitosamente!");
+        return redirect(route('admin.reservas.index'));
     }
 }

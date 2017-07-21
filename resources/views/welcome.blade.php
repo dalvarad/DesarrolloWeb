@@ -13,6 +13,9 @@
             background-image: url("fondo/guestBg.jpg");
             background-color: #C4D4EA;
         }
+        table{
+            background-color: #FFFFFF;
+        }
     </style>
 </head>
     <body>

@@ -22,7 +22,7 @@ class ReservaRequest extends Request
 
         return [
             'id_ha'             => 'required',
-            'id_cl'             => 'required',
+            'id_us'             => 'required',
             'reserva_comienza'  => "required|after:$date",
             'reserva_termina'   => 'required|after:reserva_comienza'            
         ];

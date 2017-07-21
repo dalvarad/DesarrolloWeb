@@ -13,24 +13,24 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="carousel/CAM02275.jpg" alt="baños" style="width: 100%;">
+      <img src="carousel/1.png" alt="baños" style="width: 100%;">
       <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
+        <h3>Talcahuano</h3>
+        <p>Hotel Acuarella</p>
       </div>
     </div>
     <div class="item">
-      <img src="carousel/CAM02282.jpg" alt="tits" style="width: 100%;">
+      <img src="carousel/2.png" alt="tits" style="width: 100%;">
       <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
+        <h3>Hotel Acuarella</h3>
+        <p>Nuestras Instalaciones</p>
       </div>
     </div>
     <div class="item">
-      <img src="carousel/CAM02298.jpg" alt="wisky" style="width: 100%;">
+      <img src="carousel/3.png" alt="wisky" style="width: 100%;">
       <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
+        <h3>Nuestras Habitaciones</h3>
+        <p>Single, doble y triples.</p>
       </div>
     </div>
   </div>
