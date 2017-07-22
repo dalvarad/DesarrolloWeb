@@ -1,4 +1,4 @@
-<footer class="panel-footer">
+<footer>
     <div style="margin-top:20px;">
         <p>
             <span>Diseñado Para Taller de Desarrollo Avanzado de Aplicaciones Web</span>

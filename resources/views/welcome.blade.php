@@ -2,29 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>@yield('title', 'Hotel Acuarella') | Hotel Acuarella</title>
+
+     <!-- Styles -->
     <link rel="stylesheet" href="{{asset ('estilos/plugins/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/icono/icono.css') }}">
     <link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/usuario/usuario.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        body {
-            background-image: url("fondo/guestBg.jpg");
-            background-color: #C4D4EA;
-        }
-        table{
-            background-color: #FFFFFF;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset ('estilos/custom.css') }}">
+
+    @include('template.partials.background')
+    
 </head>
     <body>
-        
-    <!--
-        ESTE ES EL MOLDE PARA EL SITIO WEB, 
-        LAS OTRAS VISTAS INCLUYEN ESTA 
-        PARA QUE SE VEAN TODAS IGUALES
-    -->
 
         <!--Barra Menu-->
         @include('template.partials.nav')
@@ -40,7 +32,7 @@
             </div>
 
             <!--Cuerpo de panel-->
-            <div class="panel-body">
+            <div class="panel panel-default">
 
                 <!--Incluyo mensajes flash agregados en el controlador-->
                 @include('template.partials.flash')
@@ -49,18 +41,21 @@
                 @include('template.partials.error')
 
                 <!--muestra contendos-->
-                @yield('contenido')
+                <div class="panel-body">
+                    @yield('contenido')
+                </div>
                 
             </div>
         </div><!--FIN contenido centrado-->
 
         <!--pie de panel FALTA dejarlo al FINAL-->
-        <div class="panel panel-footer" align="center">
+        <div class="abajo" align="center">
             @include('template.partials.footer')
         </div>   
         
+        <!-- Javascript -->
         <script src="{{asset ('estilos/plugins/jquery-3.2.1.js')}}"></script>
         <script src="{{asset ('estilos/plugins/bootstrap/js/bootstrap.js')}}"></script> 
-        <script src="{{asset ('estilos/plugins/bootstrap/js/bootstrap.min.js')}}"></script> 
+
     </body>
 </html>

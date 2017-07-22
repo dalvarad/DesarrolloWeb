@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
 	<link rel="stylesheet" href="{{asset ('estilos/plugins/bootstrap/css/bootstrap.css')}}">
 	<link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/icono/icono.css') }}">
 	<link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/usuario/usuario.css') }}">
+    <link rel="stylesheet" href="{{ asset ('estilos/custom.css') }}">
+
+    @include('admin.template.partials.background')
 
 </head>
 <body>
@@ -33,7 +33,7 @@
             </div>
 
             <!--Cuerpo de panel-->
-            <div class="panel-body">
+            <div class="panel panel-default">
 
                 <!--Incluyo mensajes flash agregados en el controlador-->
                 @include('template.partials.flash')
@@ -42,13 +42,15 @@
                 @include('template.partials.error')
 
                 <!--muestra contendos-->
-                @yield('contenido')
+                <div class="panel-body">
+                    @yield('contenido')
+                </div>
                 
             </div>
         </div><!--FIN contenido centrado-->
 
-        <!--pie de panel FALTA dejarlo al FINAL-->
-        <div class="panel panel-footer" align="center">
+        <!--pie de panel-->
+        <div class="abajo" align="center">
             @include('template.partials.footer')
         </div> 
 </body>
