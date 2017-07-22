@@ -25,7 +25,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name'      => $faker->name,
         'rut'       => Rut::set(rand(1000000, 25000000))->fix()->format(Rut::FORMAT_WITH_DASH),
         'email'     => $faker->email,
-        'password'  => bcrypt(str_random(10)),
+        'password'  => bcrypt('123456'),
         'type'      => $faker->randomElement($array = array ('recepcionista','administrador','cliente'))
     ];
 

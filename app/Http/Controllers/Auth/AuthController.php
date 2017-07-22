@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Freshwork\ChileanBundle\Rut;
 
 class AuthController extends Controller
 {
@@ -50,6 +51,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            'rut' => 'required|unique:users|cl_rut',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -63,8 +65,10 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name' => $data['name'],
+            'rut' =>  RUT::parse($data['rut'])->format(RUT::FORMAT_WITH_DASH),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

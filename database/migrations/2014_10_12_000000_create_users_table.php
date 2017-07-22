@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('rut', 12)->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('type', ['administrador','recepcionista', 'cliente'])->default('recepcionista');
+            $table->enum('type', ['administrador','recepcionista', 'cliente'])->default('cliente');
             $table->rememberToken();
             $table->timestamps();
         });
