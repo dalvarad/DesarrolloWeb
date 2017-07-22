@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="{{asset ('estilos/plugins/bootstrap/css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{ asset ('estilos/barra/icoMoon/icono/icono.css') }}">
 
+        @include('template.partials.background')
+
         <style>
             body {
                 font-family: 'Lato';
@@ -73,6 +75,15 @@
                 </div>
             </div>
         </nav>
+
+        <div class="container">
+            <!--Incluyo mensajes flash agregados en el controlador-->
+            @include('template.partials.flash')
+
+            <!--Incluyo mensajes arrojados por el UsuarioRequest-->
+            @include('template.partials.error')
+
+        </div>
 
         @yield('content')
 
