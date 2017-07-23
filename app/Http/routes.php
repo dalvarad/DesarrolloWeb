@@ -45,6 +45,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		'uses' => 'UsersController@destroy',
 		'as' => 'admin.users.destroy'
 	]);
+	Route::get('pdf', function(){
+		$users = App\User::all()->where('type', 'cliente');
+
+		$pdf = PDF::loadView('admin.vista', ['users' => $users]);
+		return $pdf->download('archivo.pdf');
+	});
+
+
 	/*rutas habitaciones*/
 	Route::resource('habitaciones','HabitacionesController');
 	Route::get('habitaciones/{id}/destroy', [
