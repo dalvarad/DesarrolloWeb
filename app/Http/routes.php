@@ -27,10 +27,6 @@ Route::get('habitaciones',[
 	'uses' => 'DatosController@index' 
 ]);
 
-Route::get('contacto', function (){
-	return view('contacto/index');
-});
-
 /*rutas usuarios*/
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 

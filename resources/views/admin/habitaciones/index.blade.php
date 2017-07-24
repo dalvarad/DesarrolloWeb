@@ -4,9 +4,13 @@
 
 @section('contenido')
 
+
+@if(Auth::User()->type == 'administrador')
 	<div align="center">
 		<a href="{{ route('admin.habitaciones.create') }}" class="btn btn-info">Registrar Habitación <span class="glyphicon glyphicon-bed"></span></a>
 	</div>
+@endif
+
 	<p></p>
 	<table class="table table-striped">
 		<thead>
@@ -14,6 +18,7 @@
 			<th>Valor</th>
 			<th>Estado</th>
 			<th>Tipo de Habitación</th>
+			<th>Acciones</th>
 		</thead>
 		<tbody>
 			@foreach($habitaciones as $habitacion)
@@ -39,7 +44,19 @@
 							@endif
 						@endif	
 					</td>
-					<td><a href="{{ route('admin.habitaciones.edit', $habitacion->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> <a href="{{ route('admin.habitaciones.destroy', $habitacion->id) }}" onclick="return confirm('¿Está seguro de eliminar la Habitación seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
+
+
+					<td>
+						<a href="{{ route('admin.habitaciones.edit', $habitacion->id) }}" class="btn btn-warning">
+							<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+						</a> 
+
+						@if(Auth::User()->type == 'administrador')
+						<a href="{{ route('admin.habitaciones.destroy', $habitacion->id) }}" onclick="return confirm('¿Está seguro de eliminar la Habitación seleccionada?')" class="btn btn-danger">
+							<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+						</a>
+						@endif
+					</td>
 				</tr>
 			@endforeach
 		</tbody>

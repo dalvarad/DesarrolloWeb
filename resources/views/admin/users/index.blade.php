@@ -5,7 +5,11 @@
 @section('contenido')
 
 	<div align="center">
+
+	{{--	@if(Auth::User()->type == 'administrador') --}}
 		<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
+	{{--	@endif --}}
+
 
 		<!--Buscador de tipo de habitaciones-->
 
@@ -37,7 +41,11 @@
 			<th>Nombre</th>
 			<th>Email</th>
 			<th>Tipo</th>
+		
+			@if(Auth::User()->type == 'administrador')
 			<th>Acción</th>
+			@endif
+
 		</thead>
 		<tbody>
 			@foreach($users as $user)
@@ -54,10 +62,13 @@
 							<span class="label label-primary">{{ $user->type }}</span>
 						@endif	
 					</td>
+				
+					@if(Auth::User()->type == 'administrador')
 					<td>
 						<a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
 						<a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Está seguro de eliminar al usuario seleccionado?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
 					</td>
+					@endif
 				</tr>
 			@endforeach
 		</tbody>

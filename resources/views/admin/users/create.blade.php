@@ -28,7 +28,15 @@
 
 		<p></p>
 		{!! Form::label('type', 'Tipo de Usuario') !!}
+		
+{{--Valida que el administrador pueda crear todo los roles--}}
+		@if(Auth::User()->type == 'administrador')
 		{!! Form::select('type', ['administrador' => 'Administrador', 'recepcionista' => 'Recepcionista', 'cliente' => 'Cliente'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción...', 'required']) !!}
+		@endif
+{{--Valida que el recepcionista pueda crear solo clientes--}}
+		@if(Auth::User()->type == 'recepcionista')
+		{!! Form::select('type', ['cliente' => 'Cliente'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción...', 'required']) !!}
+		@endif
 
 		<p></p>
 
