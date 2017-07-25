@@ -18,7 +18,9 @@
 			<th>Valor</th>
 			<th>Estado</th>
 			<th>Tipo de Habitación</th>
+			@if(Auth::User()->type == 'administrador')
 			<th>Acciones</th>
+			@endif
 		</thead>
 		<tbody>
 			@foreach($habitaciones as $habitacion)
@@ -47,15 +49,15 @@
 
 
 					<td>
+					@if(Auth::User()->type == 'administrador')
 						<a href="{{ route('admin.habitaciones.edit', $habitacion->id) }}" class="btn btn-warning">
 							<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 						</a> 
-
-						@if(Auth::User()->type == 'administrador')
+						
 						<a href="{{ route('admin.habitaciones.destroy', $habitacion->id) }}" onclick="return confirm('¿Está seguro de eliminar la Habitación seleccionada?')" class="btn btn-danger">
 							<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
 						</a>
-						@endif
+					@endif
 					</td>
 				</tr>
 			@endforeach
