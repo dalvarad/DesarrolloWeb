@@ -7,7 +7,19 @@
 	{!! Form::open(['route' => 'admin.reservas.store', 'method' => 'POST']) !!}
 
 	{!! Form::label('id_us', 'RUT Usuario') !!}
-	{!! Form::select('id_us', [$lista_users], null, ['class' => 'form-control', 'required', 'placeholder' => 'Selecione RUT']) !!}
+	@if(Auth::User()->type == 'cliente')
+
+
+{{--
+	falta arreglar este
+	que solo muestre el rut del cliente
+--}}
+
+		{!! Form::select('id_us', [$lista_users], null, ['class' => 'form-control', 'required', 'placeholder' => 'Selecione RUT']) !!}	
+	@else
+		{!! Form::select('id_us', [$lista_users], null, ['class' => 'form-control', 'required', 'placeholder' => 'Selecione RUT']) !!}	
+	@endif
+
 
 	<p></p>
 	{!! Form::label('id_ha', 'Valor Habitación') !!}

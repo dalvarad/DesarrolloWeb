@@ -23,4 +23,6 @@ class User extends Authenticatable
 
 		return $query->where('type', 'LIKE', "%$type%");
 	}
+
+    
 }
