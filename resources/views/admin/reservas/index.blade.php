@@ -5,6 +5,7 @@
 @section('contenido')
 	<div align="center">
 		<a href="{{ route('admin.reservas.create') }}" class="btn btn-info"> Registrar Reserva</a>
+        <a href="{{ url('admin/pdfreservas') }}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">pdf</span></a>
 	</div>
 	<p></p>
 
@@ -32,6 +33,7 @@
 	                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
 	                    <a href="{{ route('admin.reservas.destroy', $reserva->id) }}" onclick="return confirm('¿Está seguro que desea eliminar la reserva?')" class="btn btn-danger">
 	                        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+
 	            </td>
                 </tr>
             @endforeach

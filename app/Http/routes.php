@@ -41,11 +41,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		'uses' => 'UsersController@destroy',
 		'as' => 'admin.users.destroy'
 	]);
-	Route::get('pdf', function(){
+	Route::get('pdfclientes', function(){
 		$users = App\User::all()->where('type', 'cliente');
 
-		$pdf = PDF::loadView('admin.vista', ['users' => $users]);
-		return $pdf->download('archivo.pdf');
+		$pdf = PDF::loadView('admin.users.pdf', ['users' => $users]);
+		return $pdf->download('clientes.pdf');
 	});
 
 
@@ -61,6 +61,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		'uses' =>'ReservasController@destroy',
 		'as' => 'admin.reservas.destroy'
 	]);	
+
+
+
+	Route::get('pdfreservas',function(){
+		$reservas = DB::table('reservas')
+
+                    ->join('users', 'users.id', '=', 'reservas.id_us')
+                    ->join('habitaciones', 'habitaciones.id', '=', 'reservas.id_ha')
+
+                    ->select('reservas.*', 'users.name', 'habitaciones.valor')
+                    ->orderBy('reservas.id','DESC')
+                    ->get();
+
+		$pdf = PDF::loadView('admin.reservas.pdf', ['reservas' => $reservas]);
+		return $pdf->download('reservas.pdf');
+	});
 });
 
 Route::auth();

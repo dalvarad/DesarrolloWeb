@@ -9,6 +9,7 @@
 	{{--	@if(Auth::User()->type == 'administrador') --}}
 		<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
 	{{--	@endif --}}
+		<a href="{{ url('admin/pdfclientes') }}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">pdf</span></a>
 
 
 		<!--Buscador de tipo de habitaciones-->
